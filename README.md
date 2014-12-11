@@ -1,4 +1,4 @@
-GravityView - Enable GF notifications
+GravityView - Enable Gravity Forms Notifications
 ============================================
 
 When updating Gravity Forms entries using GravityView you may want to trigger the notifications defined on the form.
