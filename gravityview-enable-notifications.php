@@ -10,7 +10,7 @@
 * License URI: 			http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-add_filter( 'gform_after_update_entry', 'gravityview_enable_gf_notifications_after_update', 10, 2 );
+add_action( 'gform_after_update_entry', 'gravityview_enable_gf_notifications_after_update', 10, 2 );
 
 /**
  * Triggers Gravity Forms notifications engine when entry is updated
