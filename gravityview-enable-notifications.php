@@ -13,7 +13,7 @@
 add_action( 'gform_after_update_entry', 'gravityview_enable_gf_notifications_after_update', 10, 2 );
 
 /**
- * Triggers Gravity Forms notifications engine when entry is updated
+ * Triggers Gravity Forms notifications engine when entry is updated (admin or frontend)
  * @param  array $form    GF form
  * @param  int $entry_id  Lead/entry id
  * @return void
@@ -28,4 +28,23 @@ function gravityview_enable_gf_notifications_after_update( $form, $entry_id ) {
 
 	GFCommon::send_form_submission_notifications( $form, $entry );
 
+}
+
+
+add_action( 'gform_post_update_entry', 'gravityview_enable_gf_notifications_after_api_update_entry', 10, 2 );
+
+/**
+ * Triggers Gravity Forms notifications engine when entry is updated through Gravity Forms API (GFAPI)
+ * @param  array $entry Updated entry object
+ * @param  array $original_entry Original entry object
+ * @return void
+ */
+function gravityview_enable_gf_notifications_after_api_update_entry( $entry, $original_entry ) {
+	if( !is_admin() || !class_exists('GFCommon') || !class_exists( 'GFAPI' ) ) {
+		return;
+	}
+
+	$form = GFAPI::get_form( $entry['form_id'] );
+
+	GFCommon::send_form_submission_notifications( $form, $entry );
 }
