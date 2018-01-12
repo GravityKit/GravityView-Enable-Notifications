@@ -3,14 +3,14 @@
 * Plugin Name:       	GravityView - Enable Gravity Forms Notifications
 * Plugin URI:        	http://gravityview.co/
 * Description:       	Enable Gravity Forms notifications when an entry is edited in GravityView.
-* Version:          	1.0
+* Version:          	1.0.1
 * Author:            	Katz Web Services, Inc.
 * Author URI:        	http://www.katzwebservices.com
 * License:           	GPLv2 or later
 * License URI: 			http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-add_action( 'gform_after_update_entry', 'gravityview_enable_gf_notifications_after_update', 10, 2 );
+add_action( 'gravityview/edit_entry/after_update', 'gravityview_enable_gf_notifications_after_update', 20, 2 );
 
 /**
  * Triggers Gravity Forms notifications engine when entry is updated (admin or frontend)
